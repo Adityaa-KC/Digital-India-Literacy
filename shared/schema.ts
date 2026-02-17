@@ -1,13 +1,13 @@
 
-import { pgTable, text, serial, integer, jsonb } from "drizzle-orm/pg-core";
+import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 // === TABLE DEFINITIONS ===
 
 // Statistics for the charts
-export const statistics = pgTable("statistics", {
-  id: serial("id").primaryKey(),
+export const statistics = sqliteTable("statistics", {
+  id: integer("id").primaryKey(),
   title: text("title").notNull(),
   value: integer("value").notNull(),
   label: text("label").notNull(), // e.g., "Users in Millions"
@@ -17,18 +17,18 @@ export const statistics = pgTable("statistics", {
 });
 
 // Glossary terms for the learning tool
-export const glossaryTerms = pgTable("glossary_terms", {
-  id: serial("id").primaryKey(),
+export const glossaryTerms = sqliteTable("glossary_terms", {
+  id: integer("id").primaryKey(),
   term: text("term").notNull(),
   definition: text("definition").notNull(),
   category: text("category").notNull(), // e.g., "Hardware", "Internet", "Security"
 });
 
 // Quiz questions for the assessment tool
-export const quizQuestions = pgTable("quiz_questions", {
-  id: serial("id").primaryKey(),
+export const quizQuestions = sqliteTable("quiz_questions", {
+  id: integer("id").primaryKey(),
   question: text("question").notNull(),
-  options: jsonb("options").notNull(), // Array of strings
+  options: text("options", { mode: 'json' }).notNull(), // Array of strings
   correctAnswer: integer("correct_answer").notNull(), // Index of correct option
   explanation: text("explanation"),
 });
