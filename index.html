@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital Literacy In India</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#f0f4f9}
+nav{background:#0d47a1;padding:15px;text-align:center}
+nav button{background:none;border:none;color:white;margin:0 15px;font-size:16px;cursor:pointer}
+nav button:hover{text-decoration:underline}
+.tab{display:none;padding:40px 20px;max-width:1100px;margin:auto}
+.active{display:block}
+.card{background:white;padding:25px;border-radius:10px;margin-bottom:25px;box-shadow:0 5px 15px rgba(0,0,0,0.05)}
+h2{color:#0d47a1;margin-bottom:15px}
+button.action{background:#0d47a1;color:white;padding:8px 15px;border:none;border-radius:5px;cursor:pointer;margin-top:10px}
+input,textarea{width:100%;padding:8px;margin-top:10px}
+.details{display:none;margin-top:15px;color:#444;line-height:1.6}
+.quiz-btn{background:#1976d2;margin:5px}
+footer{background:#0d47a1;color:white;text-align:center;padding:15px;margin-top:30px}
+.progress{height:10px;background:#ddd;border-radius:5px;margin-top:10px}
+.progress-bar{height:10px;background:green;width:0;border-radius:5px}
+img {transition: transform 0.3s ease;}
+img:hover {transform: scale(1.03);}
+</style>
+</head>
+
+<body>
+
+<nav>
+<button onclick="showTab('home')">Home</button>
+<button onclick="showTab('about')">About</button>
+<button onclick="showTab('data')">India Data</button>
+<button onclick="showTab('learn')">Learning Hub</button>
+<button onclick="showTab('tools')">Digital Tools</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="tab active">
+
+<div class="card">
+<h2>Digital Literacy Mission 2026</h2>
+<img src="images/hero.jpg" 
+     alt="Digital Literacy India"
+     style="width: 50%;border-radius:10px;margin-top:15px;margin-left: 25%;">
+<p>
+India is transforming into a digital-first economy. From online banking to government services,
+digital skills are no longer optional — they are essential.
+</p>
+</div>
+
+<div class="card">
+<h2>India Digital Growth Snapshot (2025)</h2>
+
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+
+<div style="flex:1;min-width:200px;text-align:center">
+<h3 id="usersCounter">920</h3>
+<p>Million Internet Users</p>
+</div>
+
+<div style="flex:1;min-width:200px;text-align:center">
+<h3 id="upiCounter">17</h3>
+<p>Billion UPI Transactions (Yearly)</p>
+</div>
+
+<div style="flex:1;min-width:200px;text-align:center">
+<h3 id="ruralCounter">50</h3>
+<p>% Rural Penetration</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h2>Digital India in Action</h2>
+
+<div style="display:flex;flex-wrap:wrap;gap:15px">
+
+<img src="images/rural.jpg" style="width:32%;border-radius:8px">
+<img src="images/digital_payment.jpg" style="width:32%;border-radius:8px">
+<img src="images/education.jpg" style="width:32%;border-radius:8px">
+
+</div>
+
+</div>
+
+<div class="card">
+<h2>Our Mission</h2>
+<p>
+To bridge the rural-urban digital divide and create awareness about
+safe internet usage, cyber security, online payments, and digital governance.
+</p>
+<p>
+Digital literacy strengthens democracy, reduces fraud, and improves access
+to education and employment.
+</p>
+</div>
+
+<div class="card">
+<h2>Did You Know?</h2>
+<p onclick="toggleFact()" style="cursor:pointer;color:#0d47a1">
+Click to Reveal a Digital Fact
+</p>
+<p id="factBox" style="margin-top:10px;font-weight:500"></p>
+</div>
+
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="tab">
+
+<div class="card">
+<h2>What is Digital Literacy?</h2>
+<p>
+Digital literacy refers to the ability to access, understand, evaluate,
+create, and communicate information using digital technologies.
+</p>
+<p>
+It includes skills like using email, digital payments, online applications,
+cybersecurity awareness, and critical thinking in identifying misinformation.
+</p>
+</div>
+
+<div class="card">
+<h2>Digital Divide in India (2025)</h2>
+<ul>
+<li>Urban Internet Usage: 68%</li>
+<li>Rural Internet Usage: 32%</li>
+<li>Gender Gap: ~15% difference in access</li>
+<li>Cyber Fraud Cases increased significantly after 2020</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Cyber Awareness</h2>
+<img src="images/cyber_security.jpg" 
+     style="width:100%;border-radius:10px;margin-bottom:15px">
+<p>
+Cybersecurity awareness is essential to prevent phishing,
+identity theft, and digital fraud.
+</p>
+</div>
+
+<div class="card">
+<h2>Timeline of Digital Growth</h2>
+<ul>
+<li><strong>2015:</strong> Digital India initiative expands</li>
+<li><strong>2016:</strong> UPI launched</li>
+<li><strong>2020:</strong> Massive online shift due to pandemic</li>
+<li><strong>2023:</strong> 850+ million internet users</li>
+<li><strong>2025:</strong> 920+ million internet users</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Major Challenges</h2>
+<ul>
+<li>Lack of awareness in rural areas</li>
+<li>Low cybersecurity knowledge</li>
+<li>Misinformation spread via social media</li>
+<li>Online fraud & phishing attacks</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Why This Platform Matters</h2>
+<p>
+This platform combines data insights, educational content,
+interactive quizzes, and safety tools to improve digital confidence
+among Indian citizens.
+</p>
+</div>
+
+</div>
+
+<!-- DATA -->
+<div id="data" class="tab">
+<div class="card">
+<h2>Internet Users Growth (Till 2025)</h2>
+<canvas id="internetChart"></canvas>
+</div>
+
+<div class="card">
+<h2>UPI Transactions Growth (Till 2025)</h2>
+<canvas id="upiChart"></canvas>
+</div>
+
+<div class="card">
+<h2>Rural vs Urban Access 2025</h2>
+<canvas id="accessChart"></canvas>
+</div>
+</div>
+
+<!-- LEARNING HUB -->
+<div id="learn" class="tab">
+
+<div class="card">
+<h2>How to Create Email ID</h2>
+<button class="action" onclick="toggleDetails('emailDetails')">Read Full Guide</button>
+<div id="emailDetails" class="details">
+Step 1: Visit Gmail.com<br>
+Step 2: Click on Create Account<br>
+Step 3: Enter name, username, password<br>
+Step 4: Add recovery mobile number<br>
+Step 5: Verify using OTP<br><br>
+Always keep your password strong and never share OTP.
+</div>
+</div>
+
+<div class="card">
+<h2>How to Use UPI Safely</h2>
+<button class="action" onclick="toggleDetails('upiDetails')">Read Full Guide</button>
+<div id="upiDetails" class="details">
+Use official apps like BHIM, PhonePe, Google Pay.<br>
+Never scan unknown QR codes.<br>
+Never approve collect request unless verified.<br>
+Never share UPI PIN.
+</div>
+</div>
+
+<div class="card">
+<h2>Identify Fake Messages</h2>
+<button class="action" onclick="toggleDetails('fakeDetails')">Read Full Guide</button>
+<div id="fakeDetails" class="details">
+Check spelling mistakes.<br>
+Avoid urgent reward messages.<br>
+Verify source website domain.<br>
+Never click unknown links.
+</div>
+</div>
+
+<div class="card">
+<h2>Quick Quiz</h2>
+<p>Should you share OTP with bank representative?</p>
+<button class="quiz-btn" onclick="quiz(false)">Yes</button>
+<button class="quiz-btn" onclick="quiz(true)">No</button>
+<p id="quizResult"></p>
+</div>
+
+</div>
+
+<!-- TOOLS -->
+<div id="tools" class="tab">
+
+<div class="card">
+<h2>Password Strength Checker</h2>
+<input type="text" id="password" placeholder="Enter password">
+<div class="progress"><div id="bar" class="progress-bar"></div></div>
+</div>
+
+<div class="card">
+<h2>Scam Message Analyzer</h2>
+<textarea id="scamText" placeholder="Paste suspicious message"></textarea>
+<button class="action" onclick="checkScam()">Analyze</button>
+<p id="scamResult"></p>
+</div>
+
+<div class="card">
+<h2>Mini Digital Literacy Test</h2>
+<p>Is it safe to click unknown email links?</p>
+<button class="quiz-btn" onclick="quiz2(false)">Yes</button>
+<button class="quiz-btn" onclick="quiz2(true)">No</button>
+<p id="quizResult2"></p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Digital Literacy India | Created By AKC Enterprises
+</footer>
+
+<script>
+
+function showTab(id){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function toggleDetails(id){
+let el=document.getElementById(id);
+el.style.display = el.style.display==="block" ? "none" : "block";
+}
+
+new Chart(document.getElementById("internetChart"),{
+type:"line",
+data:{
+labels:["2016","2018","2020","2022","2023","2024","2025"],
+datasets:[{
+label:"Users (Millions)",
+data:[350,500,650,800,850,880,920],
+borderColor:"#0d47a1",
+fill:false
+}]
+}
+});
+
+new Chart(document.getElementById("upiChart"),{
+type:"bar",
+data:{
+labels:["2018","2019","2020","2021","2022","2023","2024","2025"],
+datasets:[{
+label:"Transactions (Billion)",
+data:[1,2,3,5,8,12,14,17],
+backgroundColor:"#1976d2"
+}]
+}
+});
+
+new Chart(document.getElementById("accessChart"),{
+type:"pie",
+data:{
+labels:["Urban","Rural"],
+datasets:[{
+data:[68,32],
+backgroundColor:["#0d47a1","#64b5f6"]
+}]
+}
+});
+
+document.getElementById("password").addEventListener("input",function(){
+let val=this.value;
+let bar=document.getElementById("bar");
+if(val.length<6){
+bar.style.width="30%";
+bar.style.background="red";
+}
+else if(val.match(/[A-Z]/)&&val.match(/[0-9]/)){
+bar.style.width="100%";
+bar.style.background="green";
+}
+else{
+bar.style.width="60%";
+bar.style.background="orange";
+}
+});
+
+function checkScam(){
+let text=document.getElementById("scamText").value.toLowerCase();
+let result=document.getElementById("scamResult");
+if(text.includes("lottery")||text.includes("urgent")||text.includes("win")){
+result.innerText="⚠ High Risk: Possible Scam Message";
+result.style.color="red";
+}else{
+result.innerText="No common scam indicators detected.";
+result.style.color="green";
+}
+}
+
+function quiz(correct){
+let r=document.getElementById("quizResult");
+if(correct){r.innerText="Correct! OTP should never be shared.";r.style.color="green";}
+else{r.innerText="Wrong! OTP must never be shared.";r.style.color="red";}
+}
+
+function quiz2(correct){
+let r=document.getElementById("quizResult2");
+if(correct){r.innerText="Correct! Unknown links are dangerous.";r.style.color="green";}
+else{r.innerText="Wrong! Avoid clicking unknown links.";r.style.color="red";}
+}
+
+</script>
+
+</body>
+</html>
